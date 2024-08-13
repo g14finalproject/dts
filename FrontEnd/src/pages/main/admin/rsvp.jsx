@@ -1,109 +1,146 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import { Link } from "react-router-dom";
-import './assets/css/s.css'
+import React, { useState } from "react";
+import axios from 'axios';
+import QRCode from 'qrcode.react';
+import './assets/css/r.css';
+// import Nav from './nav';
+// import Foot from './foot';
 
- import s2 from './assets/images/profileimg.jpg'
+function Atform() {
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [qrData, setQrData] = useState(null);
+  const [attendee, setAttendee] = useState(null);
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
 
-import Nav from './nav'
-import Foot from './foot'
-function Rsvp() {
+    const formData = new FormData(event.target);
+
+    const attendeeData = {
+      name: formData.get('name'),
+      username: formData.get('username'),
+      email: formData.get('email'),
+      phone: formData.get('phone'),
+      tShirtSize: formData.get('tShirtSize'),
+      role: formData.get('role'),
+      food: formData.get('food'),
+      occupation: formData.get('occupation'),
+      gender: formData.get('gender'),
+    };
+
+    // Validation checks
+    if (!attendeeData.name || !attendeeData.username || !attendeeData.email || !attendeeData.phone || !attendeeData.occupation || !attendeeData.gender) {
+      setErrorMessage("Please fill in all required fields.");
+      return;
+    }
+
+    if (!/^(.+)@(.+)$/.test(attendeeData.email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    if (isNaN(attendeeData.phone) || attendeeData.phone.length < 10) {
+      setErrorMessage("Please enter a valid phone number.");
+      return;
+    }
+
+    console.log('Form Data:', attendeeData);
+
+    try {
+      await axios.post("http://localhost:5000/attendeesregister", attendeeData);
+      console.log("Uploaded successfully to MongoDB");
+      setErrorMessage(null); // Clear the error message on successful upload
+      
+      // Convert the attendee data to a JSON string for the QR code
+      const jsonData = JSON.stringify(attendeeData);
+      setQrData(jsonData);
+      setAttendee(attendeeData);
+    } catch (error) {
+      console.error("Error uploading data to MongoDB:", error);
+      setErrorMessage("Error uploading data. Please try again.");
+    }
+  };
+
   return (
+  
 
 
+          <div className="container6 ">
+            <div className="title">
+              <p>Rsvp </p>
+            </div>
 
+            <form onSubmit={handleSubmit} >
+              <div className="user_details">
+                <div className="input_box">
+                  <label htmlFor="name">Full Name</label>
+                  <input type="text" id="name" name="name" placeholder="Enter your name" required />
+                </div>
+                <div className="input_box">
+                  <label htmlFor="username">Username</label>
+                  <input type="text" id="username" name="username" placeholder="Enter your username" required />
+                </div>
+                <div className="input_box">
+                  <label htmlFor="email">Email</label>
+                  <input type="email" id="email" name="email" placeholder="Enter your email" required />
+                </div>
+                <div className="input_box">
+                  <label htmlFor="phone">Phone Number</label>
+                  <input type="tel" id="phone" name="phone" placeholder="Enter your number" pattern="[0-9]{10}" required />
+                </div>
+                <div className="input_box">
+                  <div className="field-form year-section">
+                    <select name="tShirtSize" id="tShirtSize">
+                      <option value="">T-Shirt Size</option>
+                      <option value="XXL">XXL</option>
+                      <option value="XL">XL</option>
+                      <option value="L">L</option>
+                      <option value="M">M</option>
+                      <option value="S">S</option>
+                    </select>
+                    <select name="role" id="role">
+                      <option value="">Role</option>
+                      <option value="Student">Student</option>
+                      <option value="Speakers">Speakers</option>
+                      <option value="Stackholders">Stackholders</option>
+                      <option value="Volunteers">Volunteers</option>
+                      <option value="OC Members">OC Members</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <select name="food" id="food">
+                      <option value="">Food</option>
+                      <option value="Veg">Veg</option>
+                      <option value="Non-Veg">Non-Veg</option>
+                    </select>
+                  </div>
+                </div>
+                <div className="input_box">
+                  <label htmlFor="occupation">Occupation</label>
+                  <input type="text" id="occupation" name="occupation" placeholder="Occupation" required />
+                </div>
+              </div>
+              <div className="gender">
+                <span className="gender_title">Gender</span>
+                <input type="radio" name="gender" id="radio_1" value="Male" required />
+                <input type="radio" name="gender" id="radio_2" value="Female" required />
+                <input type="radio" name="gender" id="radio_3" value="Prefer not to say" required />
 
-<div className="main-content">
-<Nav/>
-<div className="container-fluid content-top-gap">
+                <div className="category">
+                  <label htmlFor="radio_1">
+                    <span className="dot one"></span>
+                    <span>Male</span>
+                  </label>
+                  <label htmlFor="radio_2">
+                    <span className="dot two"></span>
+                    <span>Female</span>
+                  </label>
+                  <label htmlFor="radio_3">
+                    <span className="dot three"></span>
+                    <span>Prefer not to say</span>
+                  </label>
+                </div>
+              </div>
 
-    <nav aria-label="breadcrumb">
-      <ol className="breadcrumb my-breadcrumb">
-        <li className="breadcrumb-item"><a href="index.html">Home</a></li>
-        <li className="breadcrumb-item active" aria-current="page">Rsvp</li>
-      </ol>
-    </nav>
-
- 
-<div className="container3">
-  <div className="title">Rsvp</div>
-  <form action="#">
-    <div className="user__details">
-      <div className="input__box">
-        <span className="details">Full Name</span>
-        <input type="text" placeholder="E.g: John Smith" required/>
-      </div>
-      <div className="input__box">
-        <span className="details">Username</span>
-        <input type="text" placeholder="johnWC98" required/>
-      </div>
-      <div className="input__box">
-        <span className="details">Email</span>
-        <input type="email" placeholder="johnsmith@hotmail.com" required/>
-      </div>
-      <div className="input__box">
-        <span className="details">Phone Number</span>
-        <input type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="012-345-6789" required/>
-      </div>
-      <div className="input__box">
-        <span className="details">Password</span>
-        <input type="password" placeholder="********" required/>
-      </div>
-      <div className="input__box">
- 
-        <div className="field-form year-section ">
-        <select name="section" id="section">
-          <option value="">T-ShirtSize</option>
-          <option value="1">XXL</option>
-          <option value="2">XL</option>
-          <option value="3">L</option>
-          <option value="4">M</option>
-          <option value="5">S</option>
-        </select>
-        <select name="section" id="section">
-          <option value="">Role</option>
-          <option value="a">Student</option>
-          <option value="b">Speakers</option>
-          <option value="c">Stackholders</option>
-          <option value="d">Volunteers</option>
-          <option value="e">OC Members</option>
-          <option value="f">Other</option>
-      
-      </select>   
-      <select name="section" id="section">
-          <option value="">Food</option>
-          <option value="a">Veg</option>
-          <option value="b">Non-Veg</option>
-       
-      
-      </select>   
-    </div>
-      </div>
-
-    </div>
-    <div className="gender__details">
-      <input type="radio" name="gender" id="dot-1"/>
-      <input type="radio" name="gender" id="dot-2"/>
-      <input type="radio" name="gender" id="dot-3"/>
-      <span className="gender__title">Gender</span>
-      <div className="category">
-        <label htmlFor="dot-1">
-          <span className="dot one"></span>
-          <span>Male</span>
-        </label>
-        <label htmlFor="dot-2">
-          <span className="dot two"></span>
-          <span>Female</span>
-        </label>
-        <label htmlFor="dot-3">
-          <span className="dot three"></span>
-          <span>Prefer not to say</span>
-        </label>
-      </div>
-    </div>
-
-    <div className="input_box">
+              <div className="input_box">
 <label id ="idlabel" className="mdl-button mdl-js-button mdl-button--raised">
   <input type="file" id="files" name="files[]"  multiple />
     Payment Recipt
@@ -116,28 +153,28 @@ function Rsvp() {
         
     </div>
 </div>
-    <div className="button">
-      <input type="submit" value="Register"/>
-    </div>
-  </form>
-</div>
+              <div className="reg_btn">
+                <input type="submit" value="Register" />
+              </div>
+            </form>
+<div className="Qr">
+            {errorMessage && <p>{errorMessage}</p>}
 
-   
-    </div>
-    <Foot/>
-    </div> 
- 
- 
+            {/* Display QR code if qrData is available */}
+            {qrData && (
+              <div className="qr-code-container">
+                <h2>Thank you for registering! We look forward to seeing you on the date</h2>
+                <h3>Bring this QR Code to the Event</h3>
+                <QRCode className="Qr" value={qrData} size={256} />
+                <p>{attendee && `Attendee: ${attendee.name}`}</p>
+              </div>
+            )}
+            </div>
+          </div>
+     
 
 
-
-   
-   
   );
 }
 
-export default Rsvp;
-
-
-
-
+export default Atform;

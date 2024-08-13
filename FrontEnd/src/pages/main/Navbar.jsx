@@ -8,7 +8,8 @@ function Navbar() {
 
   const handleLogout = () => {
     localStorage.removeItem("faceAuth");
-    setIsLoggedIn(false); // Update state to reflect the logged-out status
+    setIsLoggedIn(false);
+
     navigate("/"); // Redirect to the home page or login page
   };
 
@@ -33,6 +34,13 @@ function Navbar() {
               <span className="navbar-toggler-icon fa icon-close fa-times"></span>
             </button>
             <div className="navbar-collapse">
+             
+            </div>
+
+            <div className="cont-ser-position">
+              <nav className="navigation">
+                <div className="theme-switch-wrapper">
+                <div className="navbar-collapse">
               <ul className="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll">
                 <li className="nav-item">
                   <Link className="nav-link" to="/">
@@ -49,33 +57,33 @@ function Navbar() {
                     Contact
                   </Link>
                 </li>
-                <li className="nav-item">
-                  {isLoggedIn ? (
-                    <button className="nav-link" onClick={handleLogout}>
-                      Logout
-                    </button>
-                  ) : (
-                    <Link className="nav-link" to="/user-select">
-                      Login
-                    </Link>
-                  )}
-                </li>
-                <li className="nav-item">
+             
+                {/* <li className="nav-item">
                   <Link className="nav-link" to="/admin">
-                    Activity
+                    My Events
                   </Link>
-                </li>
+                </li> */}
               </ul>
             </div>
+                <li className="nav-item">
+                  {isLoggedIn ? (
+                    <div>
+                    <Link className="btn1 btn-white" onClick={handleLogout}>
+                      Logout
+                    </Link>
 
-            <div className="cont-ser-position">
-              <nav className="navigation">
-                <div className="theme-switch-wrapper">
+                    <Link to="/admin" className="btn1 btn-white">My Events</Link></div>
+                  ) : (
+                    // <Link to="/invite" className="btn1 btn-white">Create Event</Link>
+                    <Link to="/user-select" className="btn1 btn-white">Create Event</Link>
+                  )}
+                </li>
                   <label className="theme-switch" htmlFor="checkbox">
-                    <input type="checkbox" id="checkbox" />
+                  
                     <div className="mode-container">
-                      <i className="gg-sun"></i>
+                     
                       <i className="gg-moon"></i>
+                     
                     </div>
                   </label>
                 </div>

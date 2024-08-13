@@ -9,7 +9,7 @@ import Login from "./pages/Login";
 import Home2 from "./pages/main/home";
 import About from "./pages/main/about";
 import Contact from "./pages/main/contact";
-import Admin from "./pages/main/admin/admin";
+
 import Atte from "./pages/main/admin/attendies";
 import Atform from "./pages/main/admin/atForm";
 import Email from "./pages/main/admin/email";
@@ -30,13 +30,13 @@ const router = createBrowserRouter(
         <Route path="/login2" element={<Home />} />
         <Route path="/" element={<Home2 />} />
         <Route path="/about" element={<About />} />
-        <Route path="/admin" element={<Admin />} />
+       
         <Route path="/atform" element={<Atform />} />
         <Route path="/email" element={<Email />} />
         <Route path="/compose" element={<Compose />} />
         <Route path="/price" element={<Price />} />
         <Route path="/oc" element={<Oc />} />
-        <Route path="/eventform" element={<Eventform />} />
+        <Route path="/admin" element={<Eventform />} />
         <Route path="/invite" element={<Invite />} />
         <Route path="/rsvp" element={<Rsvp/>} />
         <Route path="/ticket" element={<Ticket />} />

@@ -8,7 +8,7 @@ dotenv.config({
   path: ".env", // Give .env file location
 });
 
-const port = process.env.PORT; // Use the PORT environment variable
+const port = process.env.PORT || 5000; // Use the PORT environment variable with a default value
 const app = express();
 app.use(express.json());
 app.use(cors({
@@ -29,13 +29,15 @@ mongoose.connect(process.env.MONGODB_URL, {
 });
 
 // User Routes
+
+// Register a new user
 app.post("/register", (req, res) => {
   UserModel.create(req.body)
-    .then((e) => res.json(e))
-    .catch((e) => res.json(e));
+    .then((user) => res.status(201).json(user))
+    .catch((error) => res.status(400).json({ message: error.message }));
 });
 
-
+// Update user details
 app.post('/update', async (req, res) => {
   const { id, email, phone, companyName, eventName, specialization, startDate, endDate, time } = req.body;
 
@@ -43,15 +45,19 @@ app.post('/update', async (req, res) => {
     return res.status(400).json({ error: 'ID is required' });
   }
 
-  // Convert startDate and endDate to Date objects if they're strings
-  const start = new Date(startDate);
-  const end = new Date(endDate);
+  // Validate date fields
+  let start = new Date(startDate);
+  let end = new Date(endDate);
+
+  if (isNaN(start.getTime()) || isNaN(end.getTime())) {
+    return res.status(400).json({ error: 'Invalid date format' });
+  }
 
   try {
     const updatedUser = await UserModel.findByIdAndUpdate(
       id,
       { email, phone, companyName, eventName, specialization, startDate: start, endDate: end, time },
-      { new: true } // Return the updated document
+      { new: true, runValidators: true } // Return the updated document and run schema validators
     );
 
     if (!updatedUser) {
@@ -64,9 +70,7 @@ app.post('/update', async (req, res) => {
   }
 });
 
-
-
-
+// Get all custom users
 app.get("/getUsers", async (req, res) => {
   try {
     const allData = await UserModel.find({ type: 'CUSTOM' });
@@ -76,6 +80,7 @@ app.get("/getUsers", async (req, res) => {
   }
 });
 
+// Get all admins
 app.get("/getAdmins", async (req, res) => {
   try {
     const allData = await UserModel.find({ type: 'ADMIN' });
@@ -85,11 +90,9 @@ app.get("/getAdmins", async (req, res) => {
   }
 });
 
-
-
-
 // Attendee Routes
 
+// Register a new attendee
 app.post("/attendeesregister", async (req, res) => {
   try {
     const attendee = new AttendeeModel(req.body);
@@ -100,7 +103,7 @@ app.post("/attendeesregister", async (req, res) => {
   }
 });
 
-
+// Get all attendees
 app.get("/attendees", async (req, res) => {
   try {
     const attendees = await AttendeeModel.find();
@@ -109,51 +112,6 @@ app.get("/attendees", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
-
-// app.get("/attendees/:id", async (req, res) => {
-//   try {
-//     const attendee = await AttendeeModel.findById(req.params.id);
-//     if (attendee) {
-//       res.json(attendee);
-//     } else {
-//       res.status(404).json({ message: "Attendee not found" });
-//     }
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
-
-
-// app.put("/attendees/:id", async (req, res) => {
-//   try {
-//     const attendee = await AttendeeModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
-//     if (attendee) {
-//       res.json(attendee);
-//     } else {
-//       res.status(404).json({ message: "Attendee not found" });
-//     }
-//   } catch (err) {
-//     res.status(400).json({ message: err.message });
-//   }
-// });
-
-
-// app.delete("/attendees/:id", async (req, res) => {
-//   try {
-//     const attendee = await AttendeeModel.findByIdAndDelete(req.params.id);
-//     if (attendee) {
-//       res.json({ message: "Attendee deleted successfully" });
-//     } else {
-//       res.status(404).json({ message: "Attendee not found" });
-//     }
-//   } catch (err) {
-//     res.status(500).json({ message: err.message });
-//   }
-// });
-
-
-
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);

@@ -2,35 +2,107 @@ const mongoose = require("mongoose");
 
 // User Schema
 const UserSchema = new mongoose.Schema({
-  id: String,
-  name: String,
-  email: String,
-  phone: String,
-  companyName: String,
-  eventName: String,
-  specialization: String,
-  startDate: Date, // Change to Date
-  endDate: Date,   // Change to Date
-  time: String,
-  picture: String,
-});
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  phone: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  companyName: {
+    type: String,
+    trim: true
+  },
+  eventName: {
+    type: String,
+    trim: true
+  },
+  specialization: {
+    type: String,
+    trim: true
+  },
+  startDate: {
+    type: Date,
+    required: true
+  },
+  endDate: {
+    type: Date,
+    required: true
+  },
+  time: {
+    type: String,
+    trim: true
+  },
+  picture: {
+    type: String,
+    trim: true
+  }
+}, { timestamps: true });
 
 const UserModel = mongoose.model("User", UserSchema, "users");
 
-//attendee
+// Attendee Schema
+const AttendeeSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+    lowercase: true,
+    trim: true
+  },
+  phone: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  tShirtSize: {
+    type: String,
+    trim: true
+  },
+  role: {
+    type: String,
+    trim: true
+  },
+  food: {
+    type: String,
+    trim: true
+  },
+  occupation: {
+    type: String,
+    trim: true
+  },
+  gender: {
+    type: String,
+    trim: true
+  }
+  // Uncomment if used
+  // paymentReceipt: {
+  //   type: String,
+  //   trim: true
+  // }
+}, { timestamps: true });
 
-const attendeeSchema = new mongoose.Schema({
-  name: String,
-  username: String,
-  email: String,
-  phone: String,
-  tShirtSize: String,
-  role: String,
-  food: String,
-  occupation: String,
-  gender: String,
-  // paymentReceipt: String // Uncomment if used
-});
+const AttendeeModel = mongoose.model('Attendee', AttendeeSchema);
 
-const AttendeeModel = mongoose.model('Attendee', attendeeSchema);
 module.exports = { UserModel, AttendeeModel };
