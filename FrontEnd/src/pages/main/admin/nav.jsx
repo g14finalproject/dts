@@ -56,22 +56,22 @@ function Nav() {
 
       
       <ul className="nav nav-pills nav-stacked custom-nav">
+      
       <li className="active"><Link to="/admin">Home</Link>
       </li>
-      <li className="active"><Link to="/eventform">Profile</Link>
-      </li>
-        <li className="active"><Link to="/atte"> Attendee</Link>
+      <li className="active"><Link to="/invite">Event</Link>
+        </li>
+        <li className="active"><Link to="/atte"> Participants</Link>
         </li>
     
 
-        <li className="active"><Link to="/email"> Email</Link>
+        <li className="active"><Link to="/compose"> Email</Link>
         </li>
   
-        <li className="active"><Link to="/rsvp">Rsvp</Link>
-        </li>
+        
         <li className="active"><Link to="/ticket">Ticket</Link>
         </li>
-        <li className="active"><Link to="/oc">Oc</Link>
+        <li className="active"><Link to="/oc">Members Allocation</Link>
         </li>
       
       </ul>
@@ -105,22 +105,7 @@ function Nav() {
               </li>
             </ul>
           </div>
-          <div className="profile_details">
-            <ul>
-              <li className="dropdown profile_details_drop">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown" id="dropdownMenu3" aria-haspopup="true"
-                  aria-expanded="false">
-                  <div className="profile_img">
-                    <img src={account.picture} className="rounded-circle" alt="" />
-                    <div className="user-active">
-                      <span></span>
-                    </div>
-                  </div>
-                </a>
-             
-              </li>
-            </ul>
-          </div>
+        
         </div>
       </div>
     </div>

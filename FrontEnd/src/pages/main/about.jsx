@@ -42,14 +42,10 @@ function Home() {
             <div className="row align-items-center">
                 <div className="col-lg-6 section-width pe-xl-5">
                     <h3 className="title-style">5 <span>years</span> of experience</h3>
-                    <p className="mt-4">At corrupti odit At iure facere,
-                        porro repellat officia quas, dolores magnam assumenda soluta odit
-                        harum maiores fugiat accusamus eos nulla. Iure voluptatibus explicabo
-                        officia.</p>
-                    <p className="mt-4 pb-dm-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, corrupti
-                        odit? At iure facere,
-                        porro repellat officia quas, dolores magnam assumenda soluta odit
-                        harum.</p>
+                    <p className="mt-4">With half a decade of experience, we’ve honed our skills in delivering exceptional services that exceed client expectations. Our team is committed to excellence, continuously innovating to provide solutions that are both effective and efficient. We take pride in our ability to tackle challenges head-on, ensuring that every project is a success.</p>
+                    <p className="mt-4 pb-dm-3">We’ve successfully organized and executed a wide range of events, each tailored to meet the unique needs of our clients. From corporate functions to private celebrations, our events are designed to leave a lasting impression.
+
+</p>
                     <a href="about.html" className="btn btn-style mt-4"> Know more about us</a>
                 </div>
                 <div className="col-lg-6 history-info mt-lg-0 mt-5 pt-md-4 pt-2">
@@ -196,8 +192,7 @@ function Home() {
                         </div>
                         <h4 className="number">01</h4>
                         <h4><a href="#url">Marketing</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p>We offer innovative marketing strategies that boost your brand’s visibility and drive engagement. Our approach is data-driven and customized to fit your specific goals.</p>
                         <a href="services.html" className="read">Read more</a>
                     </div>
                 </div>
@@ -208,8 +203,7 @@ function Home() {
                         </div>
                         <h4 className="number">02</h4>
                         <h4><a href="#url">Event Arrangements</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p>Our event planning services cover every detail, ensuring your event runs smoothly from start to finish. Whether it’s a corporate event or a private gathering, we bring your vision to life.</p>
                         <a href="services.html" className="read">Read more</a>
                     </div>
                 </div>
@@ -220,8 +214,7 @@ function Home() {
                         </div>
                         <h4 className="number">03</h4>
                         <h4><a href="#url">Wedding Services</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p>We specialize in creating unforgettable weddings. Our team handles everything from planning to execution, allowing you to enjoy your special day without worry.</p>
                         <a href="services.html" className="read">Read more</a>
                     </div>
                 </div>
@@ -235,9 +228,7 @@ function Home() {
                     <div className="bottom-info">
                     <h3 className="title-style text-white">Let us help you
                     plan your perfect event!</h3>
-                        <p className="mt-4 text-light">Lorem ipsum dolor sit amet elit. Velit beatae
-                            rem ullam dolore nisi esse quasi. Integer sit amet. Lorem ipsum dolor sit
-                            amet elit.</p>
+                        <p className="mt-4 text-light">Our expert planners are here to make your event memorable. We handle everything, from the smallest detail to the grandest design, so you can focus on enjoying the moment.</p>
                     </div>
                 </div>
                 <div className="col-lg-5 text-lg-end">
@@ -253,57 +244,39 @@ function Home() {
             <div className="row">
                 <div className="col-md-4">
                     <div className="customer-single pe-lg-4">
-                        <blockquote>Lorem ipsum dolor sit amet, consectetur adip iscing elit sed. orci urna. In et augue
-                            ornare, tempor
-                            massa
-                            in,
-                            luctus sapien. Proin a diam et dui fermentum dolor molestie vel id neque euismod massa a
-                            quam viverra
-                            et.
+                        <blockquote>Their expertise and attention to detail made our event a resounding success. We couldn’t have done it without them.
                         </blockquote>
                         <div className="customer-img d-flex align-items-center mt-4">
                             <img src={s3} className="img-fluid1 me-3" alt="" />
                             <div className="customer-info">
                                 <h6>Theo Hall</h6>
-                                <small className="mb-0">Subtitle goes here</small>
+                            
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4 mt-md-0 mt-5">
                     <div className="customer-single pe-lg-4">
-                        <blockquote>Lorem ipsum dolor sit amet, consectetur adip iscing elit sed. orci urna. In et augue
-                            ornare, tempor
-                            massa
-                            in,
-                            luctus sapien. Proin a diam et dui fermentum dolor molestie vel id neque euismod massa a
-                            quam viverra
-                            et.
+                        <blockquote>The team was professional, creative, and responsive. They truly understood our vision and made it a reality
                         </blockquote>
                         <div className="customer-img d-flex align-items-center mt-4">
                             <img src={s2} className="img-fluid1 me-3" alt="" />
                             <div className="customer-info">
                                 <h6>Jenna John</h6>
-                                <small className="mb-0">Subtitle goes here</small>
+                               
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-md-4 mt-md-0 mt-5">
                     <div className="customer-single pe-lg-4">
-                        <blockquote>Lorem ipsum dolor sit amet, consectetur adip iscing elit sed. orci urna. In et augue
-                            ornare, tempor
-                            massa
-                            in,
-                            luctus sapien. Proin a diam et dui fermentum dolor molestie vel id neque euismod massa a
-                            quam viverra
-                            et.
+                        <blockquote>From start to finish, the experience was seamless. Their dedication and passion for what they do are evident in the quality of their work.
                         </blockquote>
                         <div className="customer-img d-flex align-items-center mt-4">
                             <img src={s1} className="img-fluid1 me-3" alt="" />
                             <div className="customer-info">
                                 <h6>William Due</h6>
-                                <small className="mb-0">Subtitle goes here</small>
+                               
                             </div>
                         </div>
                     </div>

@@ -1,198 +1,6 @@
-// /* eslint-disable no-mixed-spaces-and-tabs */
-// /* eslint-disable no-unused-vars */
-// import React, { useState, useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
-// import axios from "axios";
-// import './assets/css/s.css';
-// import Nav from './nav';
-// import Foot from './foot';
-
-// function Invite() {
-//   const [formData, setFormData] = useState({
-//     email: '',
-//     phone: '',
-//     companyName: '',
-//     eventName: '',
-//     specialization: '',
-//     startDate: '',
-//     endDate: '',
-//     time: ''
-//   });
-//   const [account, setAccount] = useState(null);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     if (!localStorage.getItem("faceAuth")) {
-//       navigate("/login");
-//     }
-
-//     const { account } = JSON.parse(localStorage.getItem("faceAuth"));
-//     setAccount(account);
-//   }, [navigate]);
-
-//   if (!account) {
-//     return null;
-//   }
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-
-//   const handleSubmit = async (e) => {
-//     e.preventDefault();
-//     try {
-//       const response = await axios.post("http://localhost:5000/update", {
-//         id: account._id, // Ensure this matches the logged-in user's ID
-//         ...formData
-//       });
-//       console.log("User updated successfully:", response.data);
-//       navigate("/", { replace: true });
-//       // Optionally navigate to another page or show a success message
-//     } catch (error) {
-//       console.error("Error updating user:", error);
-//       // Optionally set an error message to display to the user
-//     }
-//   };
-
-//   return (
-//     <div>
-//       <Nav />
-//       <div className="main-content">
-//         <form className="form1" onSubmit={handleSubmit}>
-//           <h2>User Information</h2>
-//           <div className="form-group">
-//             <label htmlFor="email">Email address:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="email" 
-//                 name="email"
-//                 value={formData.email}
-//                 onChange={handleChange}
-//                 placeholder="Type your email address..."
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="phone">Contact Number:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="text" 
-//                 name="phone"
-//                 value={formData.phone}
-//                 onChange={handleChange}
-//                 maxLength="10"
-//                 placeholder="Type your Mobile Number..."
-//                 onInput={(e) => e.target.value = e.target.value.replace(/[^0-9]/g, '')}
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="companyName">Company Name:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="text" 
-//                 name="companyName"
-//                 value={formData.companyName}
-//                 onChange={handleChange}
-//                 placeholder="Mention your company name..."
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="eventName">Event Name:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="text" 
-//                 name="eventName"
-//                 value={formData.eventName}
-//                 onChange={handleChange}
-//                 placeholder="Type your event name..."
-//                 required
-//               />
-//             </div>  
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="specialization">Specialization:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="text" 
-//                 name="specialization"
-//                 value={formData.specialization}
-//                 onChange={handleChange}
-//                 placeholder="Type your specialization..."
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="startDate">Start Date:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="date" 
-//                 name="startDate"
-//                 value={formData.startDate}
-//                 onChange={handleChange}
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="endDate">End Date:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="date" 
-//                 name="endDate"
-//                 value={formData.endDate}
-//                 onChange={handleChange}
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="form-group">
-//             <label htmlFor="time">Time:</label>
-//             <div className="relative">
-//               <input 
-//                 className="form-control" 
-//                 type="time" 
-//                 name="time"
-//                 value={formData.time}
-//                 onChange={handleChange}
-//                 required
-//               />
-//             </div>
-//           </div>
-//           <div className="tright">
-//             <button className="movebtn movebtnsu" type="submit">
-//               Update <i className="fa fa-fw fa-paper-plane"></i>
-//             </button>
-//           </div>
-//         </form>
-//       </div>
-//       <Foot />
-//     </div>
-//   );
-// }
-
-// export default Invite;
-
-
-
 /* eslint-disable no-mixed-spaces-and-tabs */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import './assets/css/s.css';
@@ -201,6 +9,7 @@ import Foot from './foot';
 
 function Invite() {
   const [formData, setFormData] = useState({
+    id:'',
     email: '',
     phone: '',
     companyName: '',
@@ -211,21 +20,7 @@ function Invite() {
     time: ''
   });
   const [errors, setErrors] = useState({});
-  const [account, setAccount] = useState(null);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!localStorage.getItem("faceAuth")) {
-      navigate("/login");
-    }
-
-    const { account } = JSON.parse(localStorage.getItem("faceAuth"));
-    setAccount(account);
-  }, [navigate]);
-
-  if (!account) {
-    return null;
-  }
 
   const handleChange = (e) => {
     setFormData({
@@ -286,15 +81,13 @@ function Invite() {
     }
 
     try {
-      const response = await axios.post("http://localhost:5000/update", {
-        id: account._id, // Ensure this matches the logged-in user's ID
-        ...formData
-      });
-      console.log("User updated successfully:", response.data);
+      console.log("Submitting data:", formData); // Log data before submission
+      const response = await axios.post("http://localhost:5000/update", formData);
+      console.log("Form submitted successfully:", response.data);
       navigate("/", { replace: true });
       // Optionally navigate to another page or show a success message
     } catch (error) {
-      console.error("Error updating user:", error);
+      console.error("Error submitting form:", error);
       // Optionally set an error message to display to the user
     }
   };
@@ -304,7 +97,7 @@ function Invite() {
       <Nav />
       <div className="main-content">
         <form className="form1" onSubmit={handleSubmit}>
-          <h2>User Information</h2>
+          <h2>Event Details</h2>
           <div className="form-group">
             <label htmlFor="email">Email address:</label>
             <div className="relative">
@@ -426,7 +219,7 @@ function Invite() {
           </div>
           <div className="tright">
             <button className="movebtn movebtnsu" type="submit">
-              Update <i className="fa fa-fw fa-paper-plane"></i>
+              Submit <i className="fa fa-fw fa-paper-plane"></i>
             </button>
           </div>
         </form>

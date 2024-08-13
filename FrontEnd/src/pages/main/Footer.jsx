@@ -12,9 +12,7 @@ function Footer() {
                 <div className="col-lg-4">
                     <a className="footer-logo d-flex align-items-center" href="index.html">
                        DTS</a>
-                    <p className="mt-3">Nam libero tempore, cum soluta nobis est elige endi optio cumque nihil impedit quo
-                        minus id quod maxime placeat facere. Istee natuser iumedolo
-                        ladase.</p>
+                    <p className="mt-3">In today’s fast-paced world, its essential to adapt and innovate. Our Digital Transformation Services (DTS) empower businesses to leverage cutting-edge technology, streamline operations, and enhance customer experiences. We provide tailored solutions that remove obstacles, enabling you to achieve your goals with precision and efficiency.</p>
                     <div className="columns-2 mt-4">
                         <ul className="social">
                             <li><a href="#facebook"><i className="fab fa-facebook-f"></i></a>

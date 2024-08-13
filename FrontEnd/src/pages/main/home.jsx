@@ -49,7 +49,7 @@ function Home() {
                                 className="img-fluid radius-image" />
                             <div className="image-overlay">
                                 <h4>Weddings</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
+                                <p>We create enchanting weddings that reflect your unique love story, handling every detail with care and precision.</p>
                             </div>
                             <div className="iconic-plus">
                                 <i className="fas fa-plus"></i>
@@ -63,7 +63,7 @@ function Home() {
                                 className="img-fluid radius-image" />
                             <div className="image-overlay">
                                 <h4>Concerts</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
+                                <p>From intimate shows to large-scale festivals, we manage every aspect of concert planning for an unforgettable experience.</p>
                             </div>
                             <div className="iconic-plus">
                                 <i className="fas fa-plus"></i>
@@ -77,7 +77,7 @@ function Home() {
                                 className="img-fluid radius-image" />
                             <div className="image-overlay">
                                 <h4>Party</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
+                                <p>We bring the fun to life with expertly planned parties that are customized to match your style and preferences.</p>
                             </div>
                             <div className="iconic-plus">
                                 <i className="fas fa-plus"></i>
@@ -91,7 +91,7 @@ function Home() {
                                 className="img-fluid radius-image" />
                             <div className="image-overlay">
                                 <h4>Conferences & Open days</h4>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse, consectetur.</p>
+                                <p>We organize professional conferences and open days, ensuring a seamless and impactful experience for all attendees.</p>
                             </div>
                             <div className="iconic-plus">
                                 <i className="fas fa-plus"></i>
@@ -117,8 +117,7 @@ function Home() {
                         </div>
                         <h4 className="number">01</h4>
                         <h4><a href="#url">Marketing</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p>We craft compelling marketing strategies tailored to your brand, ensuring maximum reach and engagement. Our team specializes in creating campaigns that resonate with your target audience, driving results and growth for your business.</p>
                         <a href="services.html" className="read">Read more</a>
                     </div>
                 </div>
@@ -129,8 +128,7 @@ function Home() {
                         </div>
                         <h4 className="number">02</h4>
                         <h4><a href="#url">Event Arrangements</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p>From corporate events to private gatherings, we manage every detail with precision and creativity. Our event planning services ensure a seamless and memorable experience, allowing you to focus on what matters most.</p>
                         <a href="services.html" className="read">Read more</a>
                     </div>
                 </div>
@@ -141,8 +139,7 @@ function Home() {
                         </div>
                         <h4 className="number">03</h4>
                         <h4><a href="#url">Wedding Services</a></h4>
-                        <p>Lorem ipsum dolor sit amet sed consectetur adipisicing elit.
-                            doloret quas saepe autem, dolor set.</p>
+                        <p>We bring your dream wedding to life with personalized planning and flawless execution. From intimate ceremonies to grand celebrations, our wedding services are designed to make your special day truly unforgettable.</p>
                         <a href="services.html" className="read">Read more</a>
                     </div>
                 </div>
@@ -155,14 +152,8 @@ function Home() {
             <div className="row align-items-center">
                 <div className="col-lg-6 section-width pe-xl-5">
                     <h3 className="title-style">5 <span>years</span> of experience</h3>
-                    <p className="mt-4">At corrupti odit At iure facere,
-                        porro repellat officia quas, dolores magnam assumenda soluta odit
-                        harum maiores fugiat accusamus eos nulla. Iure voluptatibus explicabo
-                        officia.</p>
-                    <p className="mt-4 pb-dm-3">Lorem ipsum, dolor sit amet consectetur adipisicing elit. At, corrupti
-                        odit? At iure facere,
-                        porro repellat officia quas, dolores magnam assumenda soluta odit
-                        harum.</p>
+                    <p className="mt-4">With five years of experience, we’ve mastered the art of delivering exceptional services. Our team is dedicated to ensuring client satisfaction, offering innovative solutions that exceed expectations. We pride ourselves on our ability to adapt to the unique needs of each project, providing top-notch service every time.</p>
+                    <p className="mt-4 pb-dm-3">We’re here to make your vision a reality. Whether it’s a wedding, corporate event, or any special occasion, our expert planners are ready to assist. Let us take the stress out of planning and ensure that your event is nothing short of spectacular.</p>
                     <a href="about.html" className="btn btn-style mt-4"> Know more about us</a>
                 </div>
                 <div className="col-lg-6 history-info mt-lg-0 mt-5 pt-md-4 pt-2">
@@ -193,9 +184,7 @@ function Home() {
                     <div className="bottom-info">
                         <h3 className="title-style text-white">Let us help you
                         plan your perfect event!</h3>
-                        <p className="mt-4 text-light">Lorem ipsum dolor sit amet elit. Velit beatae
-                            rem ullam dolore nisi esse quasi. Integer sit amet. Lorem ipsum dolor sit
-                            amet elit.</p>
+                        <p className="mt-4 text-light">We’re here to make your vision a reality. Whether it’s a wedding, corporate event, or any special occasion, our expert planners are ready to assist. Let us take the stress out of planning and ensure that your event is nothing short of spectacular.</p>
                     </div>
                 </div>
                 <div className="col-lg-5 text-lg-end">
@@ -211,9 +200,7 @@ function Home() {
                 <div className="left-texthny p-lg-5 py-4">
                     <div className="left-texthny-2 p-lg-5 p-4">
                         <h3 className="title-style"><span>Our</span> Works</h3>
-                        <p className="my-3 pr-lg-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur
-                            hic odio consequatur.Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit beatae
-                            laudantium rem ullam dolore nisi. Integer sit amet mattis quam.</p>
+                        <p className="my-3 pr-lg-4">We take pride in our portfolio, showcasing a range of successful projects that highlight our expertise and commitment to quality. Each project reflects our dedication to creating memorable experiences.</p>
                         <a href="about.html" className="btn btn-style btn-secondary mt-4">Read More</a>
                     </div>
                 </div>
@@ -229,7 +216,9 @@ function Home() {
                     <div className="sub-wid-grid-9 py-lg-0 py-5">
                         <i className="fas fa-child mb-4"></i>
                         <h4 className="text-grid-9"><a href="services.html">Best Works</a></h4>
-                        <p className="sub-para">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                        <p className="sub-para">Explore our best works, where creativity meets execution. We’ve successfully delivered projects that stand out for their innovation and impact.
+
+</p>
 
                     </div>
                 </div>
@@ -240,7 +229,7 @@ function Home() {
                     <div className="sub-wid-grid-9 py-lg-0 py-5">
                         <i className="fab fa-angellist mb-4"></i>
                         <h4 className="text-grid-9"><a href="services.html">New Styles</a></h4>
-                        <p className="sub-para">Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+                        <p className="sub-para">Stay ahead of the curve with our latest offerings. We’re constantly evolving to bring fresh, new styles to our clients, ensuring your event or campaign is both modern and impactful.</p>
                     </div>
                 </div>
             </div>
@@ -267,8 +256,7 @@ function Home() {
 
                             <h4><a href="#blog" className="blog-desc">
                                     Set a Fashion Trend!</a></h4>
-                            <p className="mt-3">At corrupti odit At iure facere,
-                                porro repellat officia quas, magnam assumenda.</p>
+                            <p className="mt-3">Discover how we set trends that resonate with your audience, making your brand a leader in the industry.</p>
                             <a href="#blog" className="read">Read more</a>
                         </div>
                     </div>
@@ -288,8 +276,7 @@ function Home() {
                             </div>
 
                             <h4><a href="#blog" className="blog-desc">How to Do A Opening Day</a></h4>
-                            <p className="mt-3">At corrupti odit At iure facere,
-                                porro repellat officia quas, magnam assumenda.</p>
+                            <p className="mt-3">Learn the secrets to a successful opening day with our expert tips and strategies.</p>
                             <a href="#blog" className="read">Read more</a>
                         </div>
                     </div>
@@ -310,8 +297,7 @@ function Home() {
 
                             <h4><a href="#blog" className="blog-desc">
                                 How We Do Our Marketing</a></h4>
-                            <p className="mt-3">At corrupti odit At iure facere,
-                                porro repellat officia quas, magnam assumenda.</p>
+                            <p className="mt-3">Get insights into our marketing process and how we create campaigns that deliver results.</p>
                             <a href="#blog" className="read">Read more</a>
                         </div>
                     </div>

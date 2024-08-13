@@ -5,7 +5,7 @@ import { CSVLink } from "react-csv";
 import Nav from './nav';
 import Foot from './foot';
 import QRCode from 'qrcode.react';
-import Papa from 'papaparse'; 
+import Papa from 'papaparse';
 
 function Attendies() {
     const [data, setData] = useState([]);
@@ -30,7 +30,7 @@ function Attendies() {
     // Prepare data for CSV
     const csvData = [
         ["#", "Name", "Email", "Phone", "Role", "T Shirt Size"],
-        ...data.map(({ id, name, email, phone, role, tShirtSize }, index) => [
+        ...data.map(({ name, email, phone, role, tShirtSize }, index) => [
             index + 1, // Adding 1 for index
             name, email, phone, role, tShirtSize 
         ]),
@@ -46,7 +46,7 @@ function Attendies() {
                 complete: (result) => {
                     setImportedData(result.data);
                     console.log('Imported Data:', result.data);
-                    
+                    // Optionally: You could handle the imported data here (e.g., update the state or send it to the server)
                 },
                 error: (error) => {
                     console.error('Error parsing CSV:', error);
@@ -66,8 +66,6 @@ function Attendies() {
         );
     });
 
-
-
     return (
         <div className="main-content">
             <Nav/>
@@ -83,7 +81,7 @@ function Attendies() {
                 <div className="container mt-2">
                     <div className="text-center darken-grey-text mb-2">
                         <Link className="btn btn-danger btn-md" to='/atform' rel="noreferrer">Add New</Link>
-                        <CSVLink className="btn btn-danger btn-md" filename="my-file.csv" data={csvData}>Export</CSVLink>
+                        <CSVLink className="btn btn-danger btn-md" filename="attendees.csv" data={csvData}>Export</CSVLink>
                         <label className="btn btn-success btn-md">
                             Import
                             <input
@@ -101,8 +99,14 @@ function Attendies() {
                                 <div className="col-md-12">
                                     <h2 className="pt-3 pb-4 text-center font-bold font-up deep-purple-text">Search within table</h2>
                                     <div className="input-group md-form form-sm form-2 pl-0">
-                                        <input className="form-control my-0 py-1 pl-3 purple-border" type="text" placeholder="Search something here..." aria-label="Search"  value={searchQuery}
-                                            onChange={(e) => setSearchQuery(e.target.value)}/>
+                                        <input 
+                                            className="form-control my-0 py-1 pl-3 purple-border" 
+                                            type="text" 
+                                            placeholder="Search something here..." 
+                                            aria-label="Search"  
+                                            value={searchQuery}
+                                            onChange={(e) => setSearchQuery(e.target.value)}
+                                        />
                                         <span className="input-group-addon waves-effect purple lighten-2" id="basic-addon1">
                                             <a><i className="fa fa-search white-text" aria-hidden="true"></i></a>
                                         </span>
@@ -133,12 +137,6 @@ function Attendies() {
                                             <td>{item.role}</td>
                                             <td>{item.tShirtSize}</td>
                                             <td>
-                                                {/* <button
-                                                    className="btn btn-primary"
-                                                    onClick={() => handleQRCodeClick(item)}
-                                                >
-                                                    QR Code
-                                                </button> */}
                                                 {/* Optionally, display QR code */}
                                                 <QRCode value={`Name: ${item.name}, Email: ${item.email}`} size={100} />
                                             </td>

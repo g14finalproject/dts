@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from 'axios';
-import QRCode from 'qrcode.react'; 
+// import QRCode from 'qrcode.react'; 
 import './assets/css/s.css';
 
 import Nav from './nav';
@@ -19,8 +19,7 @@ function Email() {
             const { account } = JSON.parse(localStorage.getItem("faceAuth"));
             setAccount(account);
 
-            
-            axios.get('http://localhost:5000/getUsers') 
+            axios.get('http://localhost:5000/getUsers')
                 .then(response => {
                     setData(response.data);
                 })
@@ -30,8 +29,20 @@ function Email() {
         }
     }, [navigate]);
 
+    const formatDate = (date) => {
+        if (!date) {
+            return 'N/A';  // Return a fallback value if date is missing or invalid
+        }
+        
+        const d = new Date(date);
+        if (isNaN(d.getTime())) {
+            return 'Invalid date';  // Handle invalid date format
+        }
+        return d.toISOString().split('T')[0];
+    };
+
     if (!account) {
-        return null;
+        return null;  // If account is not loaded, don't render anything
     }
 
     return (
@@ -50,14 +61,14 @@ function Email() {
                         <div className="mail-box">
                             <aside className="sm-side">
                                 <div className="user-head">
-                                    <a className="inbox-avatar" href="javascript:;">
+                                    <a className="inbox-avatar" href="#">
                                         <img src={account.picture} alt="Profile"/>
                                     </a>
                                     <div className="user-name">
                                         <h5><a href="#">{account.name}</a></h5>
                                         <span><a href="#">{account.email}</a></span>
                                     </div>
-                                    <a className="mail-dropdown pull-right" href="javascript:;">
+                                    <a className="mail-dropdown pull-right" href="#">
                                         <i className="fa fa-chevron-down"></i>
                                     </a>
                                 </div>
@@ -71,7 +82,6 @@ function Email() {
                                     <li>
                                         <a href="#"><i className="fa fa-envelope-o"></i> Sent Mail</a>
                                     </li>
-                                   
                                 </ul>
                             </aside>
                             <aside className="lg-side">
@@ -79,20 +89,10 @@ function Email() {
                                     <h1>SentBox</h1>
                                 </div>
                                 <div className="inbox-body">
-                                    <div className="mail-option">
-                                        <ul className="unstyled inbox-pagination">
-                                            <li><span>1-50 of 234</span></li>
-                                            <li>
-                                                <a className="np-btn" href="#"><i className="fa fa-angle-left pagination-left"></i></a>
-                                            </li>
-                                            <li>
-                                                <a className="np-btn" href="#"><i className="fa fa-angle-right pagination-right"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
+                                  
                                     <table className="table table-inbox table-hover">
                                         <tbody>
-                                            {data.map((item, index) => (
+                                            {data.map((item) => (
                                                 <tr key={item.id}>
                                                     <td className="inbox-small-cells">
                                                         <input type="checkbox" className="mail-checkbox"/>
@@ -100,11 +100,10 @@ function Email() {
                                                     <td className="inbox-small-cells"><i className="fa fa-star"></i></td>
                                                     <td className="view-message dont-show">{item.name}</td>
                                                     <td className="view-message">{item.email}</td>
-                                                    <td className="view-message inbox-small-cells">
-                                                        {/* Display QR code */}
-                                                        <QRCode value={`Name: ${item.name}, Email: ${item.email}`} size={100} />
+                                                  
+                                                    <td className="view-message text-right">
+                                                        {formatDate(item.date)}
                                                     </td>
-                                                    <td className="view-message text-right">Date</td>
                                                 </tr>
                                             ))}
                                         </tbody>

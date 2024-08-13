@@ -28,17 +28,17 @@ function Contact() {
                 <div className="col-lg-3 col-sm-6 contact-info">
                     <i className="fas fa-map-marked-alt"></i>
                     <h4>Location</h4>
-                    <p>London, 235 Terry, 10001</p>
+                    <p>Jaffna, 235 Terry, 10001</p>
                 </div>
                 <div className="col-lg-3 col-sm-6 contact-info mt-md-0 mt-4">
                     <i className="fas fa-headset"></i>
                     <h4>Phone</h4>
-                    <p><a href="tel:+44 987 654 321">+44 123 984 439</a></p>
+                    <p><a href="tel:+44 987 654 321">+94 773818603</a></p>
                 </div>
                 <div className="col-lg-3 col-sm-6 contact-info mt-lg-0 mt-4">
                     <i className="fas fa-envelope-open-text"></i>
                     <h4>Email</h4>
-                    <p><a href="mailto:mail@example.com" className="email">mail@example.com</a></p>
+                    <p><a href="mailto:mail@example.com" className="email">dts@gmail.com</a></p>
                 </div>
                 <div className="col-lg-3 col-sm-6 contact-info mt-lg-0 mt-4">
                     <i className="fas fa-user-clock"></i>
